@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="jumbotron py-4">
+    <p class="display-4 mb-0 text-center">Login Form</p>
+  </div>
+
+  <form (ngSubmit)="loginSubmit(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="text" class="form-control" name="emailId" #emailId="ngModel" [(ngModel)]="user.emailId" required>
+      <small class="form-text text-danger" *ngIf="emailId.dirty && emailId.invalid">Email id can't be empty</small>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password"
+        required>
+        <small class="form-text text-danger" *ngIf="password.dirty && password.invalid">Password can't be empty</small>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.pristine || loginForm.invalid">Submit</button>
+  </form>
+
+</div>
