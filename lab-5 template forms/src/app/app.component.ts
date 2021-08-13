@@ -18,6 +18,7 @@ export class AppComponent {
   loginSubmit(loginForm){
     console.log(loginForm)
     this.user = new User()
+    loginForm.form.markAsPristine()
   }
 
 }
